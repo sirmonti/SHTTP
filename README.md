@@ -6,7 +6,7 @@ Wrapper class around file_get_contents function. This class is not intended
 to compete with full featured network frameworks, as Guzzle or Swoole, but to
 provide a simple and convenient solution to use web services or access web resources.
 
-This class is the static version of (simpleHTTP)[https://github.com/sirmonti/simpleHTTP/]
+This class is the static version of [simpleHTTP](https://github.com/sirmonti/simpleHTTP/)
 which means there is no need to create an object, methods can be called directly.
 
 ## Installation
@@ -16,7 +16,7 @@ composer require sirmonti/shttp
 ```
 This class does not have any external dependency, which means you don't need to
 do a full installation, you can simply download and drop
-[SHTTP.php](https://raw.githubusercontent.com/sirmonti/simpleHTTP/main/src/simpleHTTP.php)
+[SHTTP.php](https://github.com/sirmonti/SHTTP/blob/main/src/SHTTP.php)
 file in your project folder.
 
 ## Features
@@ -35,7 +35,7 @@ file in your project folder.
 This is only a brief explanation, the file [SHTTP.md](SHTTP.md) provide
 a more extensive method reference.
 
-Complete documentation can be found [Here](https://sirmonti.github.io/SHTTP/).
+Complete documentation can be found [Here](https://sirmonti.github.io/SHTTP/classes/SHTTP.html).
 
 There are four global parameters: exception level, certificate validation flag,
 extra HTTP headers and Certificate Authentication.
