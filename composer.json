@@ -2,7 +2,6 @@
     "name": "sirmonti/shttp",
     "description": "Wrapper class around file_get_contents function to simplify http and https requests",
     "keywords": ["http","rest","web service","client","HTTP client","PSR-7"],
-    "version":"1.0",
     "homepage": "https://github.com/sirmonti/SHTTP",
     "type": "library",
     "license": "MIT",
