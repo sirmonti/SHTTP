@@ -104,7 +104,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 
     </aside>
 
@@ -146,7 +146,7 @@ web resources</p>
                     <span class="phpdocumentor-tag__name">version</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">7.0.0</span>
+                                            <span class="phpdocumentor-tag-link">8.0.0</span>
                                                                                 
                                              
                                     </dd>
@@ -193,6 +193,36 @@ A ver</p>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -property -public">
+    <a href="classes/SHTTP.html#property_followRedirs">$followRedirs</a>
+    <span>
+                        &nbsp;: bool            </span>
+</dt>
+<dd>If request returns a redirection, it must be followed.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -public">
+    <a href="classes/SHTTP.html#property_maxfollows">$maxfollows</a>
+    <span>
+                        &nbsp;: int            </span>
+</dt>
+<dd>How many redirections must be followed before a &quot;Many redirections&quot;
+error must be fired</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -public">
+    <a href="classes/SHTTP.html#property_reqFullURI">$reqFullURI</a>
+    <span>
+                        &nbsp;: bool            </span>
+</dt>
+<dd>On the request command, send the full URI instead the path.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -public">
+    <a href="classes/SHTTP.html#property_timeout">$timeout</a>
+    <span>
+                        &nbsp;: float            </span>
+</dt>
+<dd>Connection timeout. Connection closes if exceds timeout without
+response. Default value is ten seconds.</dd>
+
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
     <a href="classes/SHTTP.html#property_verifCERT">$verifCERT</a>
     <span>
@@ -256,6 +286,20 @@ A ver</p>
                                 &nbsp;: <abbr title="\OpenSSLCertificate">OpenSSLCertificate</abbr>|null    </span>
 </dt>
 <dd>Get the peer certificate from the visited site</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/SHTTP.html#method_getProxy">getProxy()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Get the proxy parameters</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/SHTTP.html#method_getSendBody">getSendBody()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Get the body that has been sent on last request</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/SHTTP.html#method_getSendHeaders">getSendHeaders()</a>
@@ -411,6 +455,13 @@ A ver</p>
 </dt>
 <dd>Define a set of extra headers to be attached to following requests</dd>
 
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/SHTTP.html#method_setProxy">setProxy()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Set the proxy server</dd>
+
     </dl>
 
 
@@ -432,6 +483,148 @@ A ver</p>
             -public
             -static                                            "
 >
+    <h4 class="phpdocumentor-element__name" id="property_followRedirs">
+        $followRedirs
+        <a href="classes/SHTTP.html#property_followRedirs" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">56</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">If request returns a redirection, it must be followed.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">bool</span>
+    <span class="phpdocumentor-signature__name">$followRedirs</span>
+     = <span class="phpdocumentor-signature__default-value">\true</span></code>
+
+    
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -public
+            -static                                            "
+>
+    <h4 class="phpdocumentor-element__name" id="property_maxfollows">
+        $maxfollows
+        <a href="classes/SHTTP.html#property_maxfollows" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">75</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">How many redirections must be followed before a &quot;Many redirections&quot;
+error must be fired</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">int</span>
+    <span class="phpdocumentor-signature__name">$maxfollows</span>
+     = <span class="phpdocumentor-signature__default-value">20</span></code>
+
+    
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -public
+            -static                                            "
+>
+    <h4 class="phpdocumentor-element__name" id="property_reqFullURI">
+        $reqFullURI
+        <a href="classes/SHTTP.html#property_reqFullURI" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">67</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">On the request command, send the full URI instead the path.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">bool</span>
+    <span class="phpdocumentor-signature__name">$reqFullURI</span>
+     = <span class="phpdocumentor-signature__default-value">\false</span></code>
+
+        <section class="phpdocumentor-description"><p>For example, instead send &quot;GET /test.html HTTP/1.1&quot; command to the server,
+script will send &quot;GET http://www.example.com/test.html HTTP/1.1&quot;.
+Include full URI breaks standard, but is neccesary if connect to a proxy.</p>
+</section>
+
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -public
+            -static                                            "
+>
+    <h4 class="phpdocumentor-element__name" id="property_timeout">
+        $timeout
+        <a href="classes/SHTTP.html#property_timeout" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">83</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Connection timeout. Connection closes if exceds timeout without
+response. Default value is ten seconds.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">float</span>
+    <span class="phpdocumentor-signature__name">$timeout</span>
+     = <span class="phpdocumentor-signature__default-value">10.0</span></code>
+
+    
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -public
+            -static                                            "
+>
     <h4 class="phpdocumentor-element__name" id="property_verifCERT">
         $verifCERT
         <a href="classes/SHTTP.html#property_verifCERT" class="headerlink"><i class="fas fa-link"></i></a>
@@ -442,7 +635,7 @@ A ver</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">47</span>
+    <span class="phpdocumentor-element-found-in__line">49</span>
 
     </aside>
 
@@ -481,7 +674,7 @@ You can edit this value to change default value.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">60</span>
+    <span class="phpdocumentor-element-found-in__line">96</span>
 
     </aside>
 
@@ -527,7 +720,7 @@ You can edit this value to change default value.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">677</span>
+    <span class="phpdocumentor-element-found-in__line">768</span>
 
     </aside>
 
@@ -615,7 +808,7 @@ You can edit this value to change default value.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">458</span>
+    <span class="phpdocumentor-element-found-in__line">549</span>
 
     </aside>
 
@@ -703,7 +896,7 @@ You can edit this value to change default value.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">368</span>
+    <span class="phpdocumentor-element-found-in__line">459</span>
 
     </aside>
 
@@ -748,7 +941,7 @@ The certificates can be proccesed with the openssl_x509_* set of functions.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">305</span>
+    <span class="phpdocumentor-element-found-in__line">346</span>
 
     </aside>
 
@@ -788,7 +981,7 @@ The certificates can be proccesed with the openssl_x509_* set of functions.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">324</span>
+    <span class="phpdocumentor-element-found-in__line">403</span>
 
     </aside>
 
@@ -828,7 +1021,7 @@ The certificates can be proccesed with the openssl_x509_* set of functions.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">352</span>
+    <span class="phpdocumentor-element-found-in__line">443</span>
 
     </aside>
 
@@ -865,6 +1058,102 @@ the openssl_x509_* set of functions.</p>
             -public
                                     -static                    "
 >
+    <h4 class="phpdocumentor-element__name" id="method_getProxy">
+        getProxy()
+        <a href="classes/SHTTP.html#method_getProxy" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">379</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Get the proxy parameters</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getProxy</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$host</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$port</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$host</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Filled with proxy host name or IP</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$port</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Filled with proxy port</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getSendBody">
+        getSendBody()
+        <a href="classes/SHTTP.html#method_getSendBody" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">429</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Get the body that has been sent on last request</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getSendBody</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+        <section class="phpdocumentor-description"><p>If you call this method before any request, it will
+return an empty string.</p>
+</section>
+
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Body sent on last request</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
     <h4 class="phpdocumentor-element__name" id="method_getSendHeaders">
         getSendHeaders()
         <a href="classes/SHTTP.html#method_getSendHeaders" class="headerlink"><i class="fas fa-link"></i></a>
@@ -873,7 +1162,7 @@ the openssl_x509_* set of functions.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">336</span>
+    <span class="phpdocumentor-element-found-in__line">415</span>
 
     </aside>
 
@@ -916,7 +1205,7 @@ return default headers.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">659</span>
+    <span class="phpdocumentor-element-found-in__line">750</span>
 
     </aside>
 
@@ -1004,7 +1293,7 @@ return default headers.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">695</span>
+    <span class="phpdocumentor-element-found-in__line">786</span>
 
     </aside>
 
@@ -1092,7 +1381,7 @@ return default headers.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">599</span>
+    <span class="phpdocumentor-element-found-in__line">690</span>
 
     </aside>
 
@@ -1189,7 +1478,7 @@ return default headers.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">619</span>
+    <span class="phpdocumentor-element-found-in__line">710</span>
 
     </aside>
 
@@ -1286,7 +1575,7 @@ return default headers.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">640</span>
+    <span class="phpdocumentor-element-found-in__line">731</span>
 
     </aside>
 
@@ -1392,7 +1681,7 @@ return default headers.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">477</span>
+    <span class="phpdocumentor-element-found-in__line">568</span>
 
     </aside>
 
@@ -1489,7 +1778,7 @@ return default headers.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">497</span>
+    <span class="phpdocumentor-element-found-in__line">588</span>
 
     </aside>
 
@@ -1586,7 +1875,7 @@ return default headers.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">518</span>
+    <span class="phpdocumentor-element-found-in__line">609</span>
 
     </aside>
 
@@ -1692,7 +1981,7 @@ return default headers.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">393</span>
+    <span class="phpdocumentor-element-found-in__line">484</span>
 
     </aside>
 
@@ -1732,7 +2021,7 @@ return default headers.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">717</span>
+    <span class="phpdocumentor-element-found-in__line">808</span>
 
     </aside>
 
@@ -1795,7 +2084,7 @@ or slim/psr7</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">538</span>
+    <span class="phpdocumentor-element-found-in__line">629</span>
 
     </aside>
 
@@ -1892,7 +2181,7 @@ or slim/psr7</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">558</span>
+    <span class="phpdocumentor-element-found-in__line">649</span>
 
     </aside>
 
@@ -1989,7 +2278,7 @@ or slim/psr7</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">579</span>
+    <span class="phpdocumentor-element-found-in__line">670</span>
 
     </aside>
 
@@ -2095,7 +2384,7 @@ or slim/psr7</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">445</span>
+    <span class="phpdocumentor-element-found-in__line">536</span>
 
     </aside>
 
@@ -2135,7 +2424,7 @@ or slim/psr7</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">409</span>
+    <span class="phpdocumentor-element-found-in__line">500</span>
 
     </aside>
 
@@ -2183,7 +2472,7 @@ but this class adds two extra codes:</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">427</span>
+    <span class="phpdocumentor-element-found-in__line">518</span>
 
     </aside>
 
@@ -2223,7 +2512,7 @@ but this class adds two extra codes:</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">436</span>
+    <span class="phpdocumentor-element-found-in__line">527</span>
 
     </aside>
 
@@ -2263,7 +2552,7 @@ but this class adds two extra codes:</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">418</span>
+    <span class="phpdocumentor-element-found-in__line">509</span>
 
     </aside>
 
@@ -2303,7 +2592,7 @@ but this class adds two extra codes:</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">382</span>
+    <span class="phpdocumentor-element-found-in__line">473</span>
 
     </aside>
 
@@ -2368,7 +2657,7 @@ If the certificate and the private key are stored in different files, you must p
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">295</span>
+    <span class="phpdocumentor-element-found-in__line">336</span>
 
     </aside>
 
@@ -2419,7 +2708,7 @@ If the certificate and the private key are stored in different files, you must p
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">314</span>
+    <span class="phpdocumentor-element-found-in__line">393</span>
 
     </aside>
 
@@ -2448,6 +2737,69 @@ If the certificate and the private key are stored in different files, you must p
     
 
     
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setProxy">
+        setProxy()
+        <a href="classes/SHTTP.html#method_setProxy" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/SHTTP.php"><a href="files/src-shttp.html"><abbr title="src/SHTTP.php">SHTTP.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">359</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Set the proxy server</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setProxy</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$host</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$port</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">8080</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+        <section class="phpdocumentor-description"><p>You provide the host name or IP address and port</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$host</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Proxy host</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$port</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">8080</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Proxy port</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Proxy has been set OK</p>
+</section>
+
+            </section>
+
 </article>
             </section>
 
@@ -2562,6 +2914,10 @@ If the certificate and the private key are stored in different files, you must p
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
+                                                    <li><a href="classes/SHTTP.html#property_followRedirs">$followRedirs<a href="classes/SHTTP.html"></li>
+                                                    <li><a href="classes/SHTTP.html#property_maxfollows">$maxfollows<a href="classes/SHTTP.html"></li>
+                                                    <li><a href="classes/SHTTP.html#property_reqFullURI">$reqFullURI<a href="classes/SHTTP.html"></li>
+                                                    <li><a href="classes/SHTTP.html#property_timeout">$timeout<a href="classes/SHTTP.html"></li>
                                                     <li><a href="classes/SHTTP.html#property_verifCERT">$verifCERT<a href="classes/SHTTP.html"></li>
                                                     <li><a href="classes/SHTTP.html#property_exceptlevel">$exceptlevel<a href="classes/SHTTP.html"></li>
                                             </ul>
@@ -2576,6 +2932,8 @@ If the certificate and the private key are stored in different files, you must p
                                             <li><a href="classes/SHTTP.html#method_getExceptionLevel">getExceptionLevel()</a></li>
                                             <li><a href="classes/SHTTP.html#method_getExtraHeaders">getExtraHeaders()</a></li>
                                             <li><a href="classes/SHTTP.html#method_getPeerCert">getPeerCert()</a></li>
+                                            <li><a href="classes/SHTTP.html#method_getProxy">getProxy()</a></li>
+                                            <li><a href="classes/SHTTP.html#method_getSendBody">getSendBody()</a></li>
                                             <li><a href="classes/SHTTP.html#method_getSendHeaders">getSendHeaders()</a></li>
                                             <li><a href="classes/SHTTP.html#method_head">head()</a></li>
                                             <li><a href="classes/SHTTP.html#method_options">options()</a></li>
@@ -2598,6 +2956,7 @@ If the certificate and the private key are stored in different files, you must p
                                             <li><a href="classes/SHTTP.html#method_setAuthCert">setAuthCert()</a></li>
                                             <li><a href="classes/SHTTP.html#method_setExceptionLevel">setExceptionLevel()</a></li>
                                             <li><a href="classes/SHTTP.html#method_setExtraHeaders">setExtraHeaders()</a></li>
+                                            <li><a href="classes/SHTTP.html#method_setProxy">setProxy()</a></li>
                                     </ul>
             </li>
                     </ul>

@@ -38,6 +38,70 @@ You can edit this value to change default value.
 
 ***
 
+### followRedirs
+
+If request returns a redirection, it must be followed.
+
+```php
+public static bool $followRedirs
+```
+
+
+
+* This property is **static**.
+
+
+***
+
+### reqFullURI
+
+On the request command, send the full URI instead the path.
+
+```php
+public static bool $reqFullURI
+```
+
+For example, instead send "GET /test.html HTTP/1.1" command to the server,
+script will send "GET http://www.example.com/test.html HTTP/1.1".
+Include full URI breaks standard, but is neccesary if connect to a proxy.
+
+* This property is **static**.
+
+
+***
+
+### maxfollows
+
+How many redirections must be followed before a "Many redirections"
+error must be fired
+
+```php
+public static int $maxfollows
+```
+
+
+
+* This property is **static**.
+
+
+***
+
+### timeout
+
+Connection timeout. Connection closes if exceds timeout without
+response. Default value is ten seconds.
+
+```php
+public static float $timeout
+```
+
+
+
+* This property is **static**.
+
+
+***
+
 ### exceptlevel
 
 Exception level. You can edit this value to change default value
@@ -116,6 +180,66 @@ Configured exception level
 
 ***
 
+### setProxy
+
+Set the proxy server
+
+```php
+public static setProxy(string $host = &#039;&#039;, int $port = 8080): bool
+```
+
+You provide the host name or IP address and port
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$host` | **string** | Proxy host |
+| `$port` | **int** | Proxy port |
+
+
+**Return Value:**
+
+Proxy has been set OK
+
+
+
+
+***
+
+### getProxy
+
+Get the proxy parameters
+
+```php
+public static getProxy(string& $host, int& $port): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$host` | **string** | Filled with proxy host name or IP |
+| `$port` | **int** | Filled with proxy port |
+
+
+
+
+
+***
+
 ### setExtraHeaders
 
 Define a set of extra headers to be attached to following requests
@@ -188,6 +312,32 @@ return default headers.
 **Return Value:**
 
 Header sent on last request
+
+
+
+
+***
+
+### getSendBody
+
+Get the body that has been sent on last request
+
+```php
+public static getSendBody(): string
+```
+
+If you call this method before any request, it will
+return an empty string.
+
+* This method is **static**.
+
+
+
+
+
+**Return Value:**
+
+Body sent on last request
 
 
 
@@ -1010,7 +1160,7 @@ Message in PSR7 format
 **Throws:**
 <p>If there isn't any PSR7 package installed</p>
 
-- [`Error`](https://www.php.net/manual/en/class.error.php)
+- [`Error`](./Error.md)
 
 
 
@@ -1018,4 +1168,4 @@ Message in PSR7 format
 
 
 ***
-> Automatically generated on 2024-01-31
+> Automatically generated on 2024-04-27
