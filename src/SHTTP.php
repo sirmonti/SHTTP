@@ -49,6 +49,40 @@ class SHTTP {
     static public bool $verifCERT = true;
 
     /**
+     * If request returns a redirection, it must be followed.
+     * 
+     * @var bool
+     */
+    static public bool $followRedirs = true;
+
+    /**
+     * On the request command, send the full URI instead the path.
+     * 
+     * For example, instead send "GET /test.html HTTP/1.1" command to the server,
+     * script will send "GET http://www.example.com/test.html HTTP/1.1".
+     * Include full URI breaks standard, but is neccesary if connect to a proxy.
+     * 
+     * @var bool
+     */
+    static public bool $reqFullURI = false;
+
+    /**
+     * How many redirections must be followed before a "Many redirections"
+     * error must be fired
+     * 
+     * @var int
+     */
+    static public int $maxfollows = 20;
+
+    /**
+     * Connection timeout. Connection closes if exceds timeout without
+     * response. Default value is ten seconds.
+     * 
+     * @var float
+     */
+    static public float $timeout = 10.0;
+
+    /**
      * Exception level. You can edit this value to change default value
      * 
      * Expected values:
@@ -60,9 +94,9 @@ class SHTTP {
      * @var int
      */
     static private int $exceptlevel = 1;
-
+    
     /** @ignore */
-    private const USERAGENT = 'simpleHTTP/6.0';
+    private const USERAGENT = 'simpleHTTP/7.0';
 
     /** @ignore */
     private const DEFHEADER = ['User-Agent: ' . self::USERAGENT];
@@ -104,6 +138,9 @@ class SHTTP {
     static private string $method = '';
 
     /** @ignore */
+    static private string $hostheader = '';
+
+    /** @ignore */
     static private array $sendheaders = [];
 
     /** @ignore */
@@ -125,28 +162,21 @@ class SHTTP {
     static private string $passphrase = '';
 
     /** @ignore */
+    static private string $proxy = '';
+
+    /** @ignore */
     static private function mergeHeaders(array $headers) {
         self::$sendheaders = [];
-        $noms = ['host' => true, 'content-length' => true];
-        foreach ($headers as $head) {
-            $key = strtolower(strstr($head, ':', true));
-            if (!isset($noms[$key])) {
-                $noms[$key] = true;
-                self::$sendheaders[] = $head;
-            }
-        }
-        foreach (self::$extraheaders as $head) {
-            $key = strtolower(strstr($head, ':', true));
-            if (!isset($noms[$key])) {
-                $noms[$key] = true;
-                self::$sendheaders[] = $head;
-            }
-        }
-        foreach (self::DEFHEADER as $head) {
-            $key = strtolower(strstr($head, ':', true));
-            if (!isset($noms[$key])) {
-                $noms[$key] = true;
-                self::$sendheaders[] = $head;
+        $noms = ['content-length' => true];
+        self::$hostheader = '';
+        foreach([$headers,self::$extraheaders,self::DEFHEADER] as $hdrs) {
+            foreach ($hdrs as $head) {
+                $key = strtolower(strstr($head, ':', true));
+                if (!isset($noms[$key])) {
+                    $noms[$key] = true;
+                    self::$sendheaders[] = $head;
+                    if($key=='host') self::$hostheader = trim(substr(strstr($head,':'),1));
+                }
             }
         }
     }
@@ -164,26 +194,29 @@ class SHTTP {
             self::$respstatus = _('Invalid scheme. This class only supports http and https connections');
             throw new Exception;
         }
-        $host = $info['host'];
-        self::$sendheaders[] = 'Host: ' . $host;
+        if(self::$hostheader=='') {
+            $host = $info['host'];
+            self::$sendheaders[] = 'Host: ' . $host;
+        } else {
+            $host = self::$hostheader;
+        }
+        self::$opts = [
+            'http' => [
+                'ignore_errors' => true,
+                'request_fulluri' => self::$reqFullURI,
+                'timeout' => self::$timeout,
+                'follow_location' => self::$followRedirs ? 1:0,
+                'max_redirects' => self::$maxfollows,
+                'method' => self::$method
+            ]
+        ];
         if (self::$body != '') {
             self::$sendheaders[] = 'Content-Length: ' . strlen(self::$body);
-            self::$opts = [
-                'http' => [
-                    'ignore_errors' => true,
-                    'method' => self::$method,
-                    'header' => self::$sendheaders,
-                    'content' => self::$body
-                ]
-            ];
-        } else {
-            self::$opts = [
-                'http' => [
-                    'ignore_errors' => true,
-                    'method' => self::$method,
-                    'header' => self::$sendheaders
-                ]
-            ];
+            self::$opts['http']['content'] = self::$body;
+        }
+        self::$opts['http']['header'] = self::$sendheaders;
+        if(self::$proxy!='') {
+            self::$opts['http']['proxy']=self::$proxy;
         }
         if (strtolower($info['scheme']) == 'https') {
             if (self::$verifCERT) {
@@ -315,6 +348,44 @@ class SHTTP {
     }
 
     /**
+     * Set the proxy server
+     * 
+     * You provide the host name or IP address and port
+     * 
+     * @param string $host Proxy host
+     * @param int $port Proxy port
+     * @return bool Proxy has been set OK
+     */
+    static function setProxy(string $host='',int $port=8080): bool {
+        if($host=='') {
+            self::$proxy='';
+            return true;
+        }
+        if($port==0) return false;
+        if((filter_var($host,FILTER_VALIDATE_IP,FILTER_FLAG_IPV4|FILTER_FLAG_IPV6))||
+           (filter_vars($host,FILTER_VALIDATE_DOMAIN,FILTER_FLAG_HOSTNAME))) {
+            self::$proxy='tcp://'.$host.':'.$port;
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Get the proxy parameters
+     * 
+     * @param string $host Filled with proxy host name or IP
+     * @param int $port Filled with proxy port
+     */
+    static function getProxy(string &$host, int &$port) {
+        $host='';
+        $port=0;
+        if(self::$proxy=='') return;
+        if(!preg_match('/^tcp\:\/\/(.+)\:([0-9]+)$/',self::$proxy,$resp)) return;
+        $host=$resp[1];
+        $port=(int)$resp[2];
+    }
+
+    /**
      * Define a set of extra headers to be attached to following requests
      * 
      * @param array<int,string> $headers Extra headers to set
@@ -345,6 +416,18 @@ class SHTTP {
         if (count(self::$sendheaders) == 0)
             return self::DEFHEADER;
         return self::$sendheaders;
+    }
+
+    /**
+     * Get the body that has been sent on last request
+     * 
+     * If you call this method before any request, it will
+     * return an empty string.
+     * 
+     * @return string Body sent on last request
+     */
+    static function getSendBody(): string {
+        return self::$body;
     }
 
     /**
@@ -749,7 +832,6 @@ class SHTTP {
 
     /** @ignore */
     static public function verifyPSR7() {
-        file_put_contents('prueba.txt','Ejecutado');
         $out=new ConsoleOutput;
         foreach(self::RESPPACKAGES as $name=>$class) {
             if(class_exists($class)) {
