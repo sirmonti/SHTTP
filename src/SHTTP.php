@@ -30,7 +30,7 @@ use Slim\Psr7\Stream as SSTream;
  * @see https://github.com/sirmonti/shttp/ SHTTP github project
  * 
  * @author Francisco Monteagudo <francisco@monteagudo.net>
- * @version 7.0.0
+ * @version 8.0.0
  * @license https://opensource.org/licenses/MIT (MIT License)
  * @copyright (c) 2024, Francisco Monteagudo
   A ver */
@@ -96,7 +96,7 @@ class SHTTP {
     static private int $exceptlevel = 1;
     
     /** @ignore */
-    private const USERAGENT = 'simpleHTTP/7.0';
+    private const USERAGENT = 'simpleHTTP/8.0';
 
     /** @ignore */
     private const DEFHEADER = ['User-Agent: ' . self::USERAGENT];
